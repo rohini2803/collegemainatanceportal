@@ -1,0 +1,39 @@
+﻿@model IEnumerable<collegemainatanceportal.Models.Complaint>
+
+<h2>Staff Approval Page</h2>
+
+<table class="table">
+
+    <tr>
+        <th>Title</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>@item.Title</td>
+
+            <td>@item.StaffStatus</td>
+
+            <td>
+                <form asp-action="StaffApprove" method="post">
+
+                    <input type="hidden" name="id" value="@item.Id" />
+
+                    <select name="status" class="form-control">
+                        <option>Approved</option>
+                        <option>Rejected</option>
+                    </select>
+
+                    <button class="btn btn-success">Submit</button>
+
+                </form>
+            </td>
+
+        </tr>
+    }
+
+</table>

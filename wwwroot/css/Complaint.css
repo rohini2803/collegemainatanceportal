@@ -1,0 +1,102 @@
+﻿.complaint-body {
+    background-image: url('/images/complaintpage.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+/* Container-la mela iruka space-ah 30px-la irunthu 10px-ku koraichuten */
+.container {
+    width: 90%;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.title {
+    font-size: 38px;
+    margin-bottom: 20px;
+}
+
+.cards {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: white;
+    padding: 15px; /* Padding koraichachu */
+    min-width: 250px;
+    max-width: 250px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+/* Track Complaints Title - Left Aligned and No bottom space */
+h2 {
+    text-align: left !important;
+    margin-bottom: 5px !important;
+    margin-top: 10px !important;
+    font-weight: bold;
+    color: #333;
+}
+
+/* TABLE FIXES - HEADER MATTUM DATA GAP-AH REMOVE PANNUM */
+table {
+    width: 100%;
+    margin-top: 0px !important; /* Table mela gap iruka koodathu */
+    border-collapse: collapse;
+    background: white;
+}
+
+/* Header cells gap fix */
+th {
+    background: #f1f1f1;
+    padding: 5px 10px !important; /* Mela and keela space-ah 5px-ku koraichuten */
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+/* Body cells gap fix */
+td {
+    padding: 5px 10px !important; /* Data rows nerukidama vara 5px padding */
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.status {
+    background: #3b82f6;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+
+.view-btn {
+    background: #2563eb;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 6px;
+    text-decoration: none;
+}
+body {
+    background-image: url('/images/Registercomplaintpage.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+.form-container {
+    width: 650px;
+    max-width: 90%;
+    margin: auto;
+    margin-top: 80px;
+    background: rgba(255,255,255,0.9);
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+}
+

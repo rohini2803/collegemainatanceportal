@@ -1,0 +1,79 @@
+﻿<h2>Admin Dashboard</h2>
+
+<div class="row">
+
+    <div class="col-md-3">
+        <div class="card bg-primary text-white">
+            <div class="card-body">
+                <h4>Total Complaints</h4>
+                <h2>@ViewBag.Total</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card bg-warning text-white">
+            <div class="card-body">
+                <h4>Pending</h4>
+                <h2>@ViewBag.Pending</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card bg-info text-white">
+            <div class="card-body">
+                <h4>In Progress</h4>
+                <h2>@ViewBag.InProgress</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card bg-success text-white">
+            <div class="card-body">
+                <h4>Completed</h4>
+                <h2>@ViewBag.Completed</h2>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<hr />
+
+<h4 style="text-align:center;">Complaint Status Chart</h4>
+
+<div style="width:350px;height:350px;margin:auto;">
+    <canvas id="complaintChart"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+    var ctx = document.getElementById("complaintChart").getContext("2d");
+
+    new Chart(ctx, {
+        type: "pie",
+        data: {
+            labels: ["Pending", "In Progress", "Completed"],
+            datasets: [{
+                data: [
+                    @(ViewBag.Pending ?? 0),
+                    @(ViewBag.InProgress ?? 0),
+                    @(ViewBag.Completed ?? 0)
+                ],
+                backgroundColor: [
+                    "#f39c12",
+                    "#3498db",
+                    "#2ecc71"
+                ]
+            }]
+        },
+        options: {
+            responsive: true
+        }
+    });
+
+</script>

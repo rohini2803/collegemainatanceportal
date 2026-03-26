@@ -1,0 +1,63 @@
+﻿@model collegemainatanceportal.Models.Users
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" href="~/css/login.css">
+</head>
+
+<body class="register-body">
+
+    <div class="center-container">
+
+        <div class="register-card">
+
+            <h2>Register</h2>
+
+            <form asp-controller="Account" asp-action="Register" method="post" autocomplete="off">
+
+                <div class="form-group">
+                    <label>Username</label>
+                    <input asp-for="Username" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <input asp-for="Password" type="password" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>Role</label>
+                    <select asp-for="Role" class="form-control">
+                        <option>Student</option>
+                        <option>Admin</option>
+                        <option>Staff</option>
+                        
+                    </select>
+                    <label>Admin Secret Key</label>
+                    <input type="password" name="AdminKey" class="form-control" />
+                </div>
+
+                <br>
+
+                <button type="submit" class="btn btn-success">Register</button>
+                @if(ViewBag.Error != null)
+                        {
+                            <div style="color:red:">
+                                @ViewBag.Error
+
+                            </div>
+                        }
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

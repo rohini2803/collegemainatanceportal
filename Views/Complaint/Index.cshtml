@@ -1,0 +1,137 @@
+﻿@model IEnumerable<collegemainatanceportal.Models.Complaint>
+
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/complaint.css">
+</head>
+
+<body class="complaint-body">
+    <div class="container mt-4">
+        <h1 class="title">Complaint List</h1>
+
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <div class="card p-3 text-center shadow">
+                    <h5>⚡ Electrical Issues</h5>
+                    <p>Report electrical problems</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card p-3 text-center shadow">
+                    <h5>💧 Water & Plumbing</h5>
+                    <p>Water leakage and plumbing issues</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card p-3 text-center shadow">
+                    <h5>🧹 Cleanliness</h5>
+                    <p>Campus hygiene complaints</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card p-3 text-center shadow">
+                    <h5>🛡 Security</h5>
+                    <p>Safety related complaints</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="mb-4 fw-bold">Track Complaints</h2>
+
+        <table class="table table-bordered table-striped shadow">
+            <thead class="table-light">
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Category</th>
+                    <th>Priority</th>
+                    <th>Status</th>
+                    <th>Image</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Title</td>
+                        <td>@item.Description</td>
+                        <td>@item.Category</td>
+                        <td>@item.Priority</td>
+                        <td>
+                            @if (item.Status == "Pending")
+                            {
+                                <span class="badge bg-danger">Pending</span>
+                            }
+                            else if (item.Status == "In Progress")
+                            {
+
+                                <span class="badge bg-warning text-dark">In Progress</span>
+                            }
+                            else if (item.Status == "Completed")
+                            {
+
+                                <span class="badge bg-success">Completed</span>
+                            }
+                        </td>
+                        <td>
+                            @if (item.ImagePath != null)
+                            {
+                                <a href="@item.ImagePath" target="_blank">
+                                    <img src="@item.ImagePath" width="100" height="80" style="border-radius:6px;" />
+                                </a>
+                            }
+                        </td>
+                        <td>
+                            @* Action Logic Starts Here *@
+                            @if (Context.Session.GetString("Role") == "Admin")
+                            {
+                                <form asp-action="UpdateStatus" method="post">
+                                    <input type="hidden" name="id" value="@item.Id" />
+                                    <select name="status" class="form-control mb-2 form-control-sm">
+                                        <option>Pending</option>
+                                        <option>In Progress</option>
+                                        <option>Completed</option>
+                                    </select>
+                                    <button type="submit" class="btn btn-sm btn-primary">Update</button>
+                                </form>
+                            }
+                            else if (Context.Session.GetString("Role") == "Staff")
+                            {
+                                <form asp-action="StaffApprove" method="post">
+                                    <input type="hidden" name="id" value="@item.Id" />
+                                    <select name="status" class="form-control form-control-sm">
+                                        <option>Approved</option>
+                                        <option>Rejected</option>
+                                    </select>
+                                    <button class="btn btn-success btn-sm mt-1">Approve</button>
+                                </form>
+                            }
+                            else if (Context.Session.GetString("Role") == "HOD")
+                            {
+                                <form asp-action="HodApprove" method="post">
+                                    <input type="hidden" name="id" value="@item.Id" />
+                                    <select name="status" class="form-control form-control-sm">
+                                        <option>Approved</option>
+                                        <option>Rejected</option>
+                                    </select>
+                                    <button class="btn btn-primary btn-sm mt-1">Approve</button>
+                                </form>
+                            }
+                            else
+                            {
+                                <span class="badge bg-info">@item.Status</span>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

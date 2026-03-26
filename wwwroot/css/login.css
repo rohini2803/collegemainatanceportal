@@ -1,0 +1,144 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI';
+    background: url('/images/college.jpg') no-repeat center center/cover;
+    height: 100vh;
+}
+
+.login-container {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    padding-left: 120px;
+}
+
+.login-card {
+    width: 400px;
+    padding: 40px;
+    background: rgba(255,255,255,0.85);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.title {
+    font-size: 28px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+    .title span {
+        color: #0d4d91;
+        font-weight: 700;
+    }
+
+.subtitle {
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.input-box {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+    .input-box i {
+        position: absolute;
+        left: 15px;
+        top: 14px;
+        color: #555;
+    }
+
+    .input-box input {
+        width: 100%;
+        padding: 12px 12px 12px 40px;
+        border: none;
+        border-radius: 10px;
+        background: #f2f2f2;
+    }
+
+.login-btn {
+    width: 100%;
+    background: #0d4d91;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+    .login-btn:hover {
+        background: #083b70;
+    }
+
+.register-body {
+    background: url('/images/Registerpage.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.register-card {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    width: 350px;
+    text-align: left;
+}
+
+    .register-card h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 32px; /* title bigger */
+        font-weight: bold;
+    }
+
+    .register-card label {
+        display: block;
+        margin-top: 10px;
+    }
+
+    .register-card input,
+    .register-card select {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    .register-card button {
+        width: 100%;
+        padding: 12px;
+        background-color: #28a745; /* green color */
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+        .register-card button:hover {
+            background-color: #218838; /* darker green when hover */
+        }
+
+        
+
+
+   
+   
+
+  
+
+
+
+   
